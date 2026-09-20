@@ -204,6 +204,10 @@ blockquote footer::before { content: "—— "; }
 .figure { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin: 24px 0; box-shadow: var(--shadow-sm); }
 .figure svg { width: 100%; height: auto; }
 .figure figcaption { text-align: center; color: var(--ink-soft); font-size: 13px; margin-top: 8px; }
+.figure img { width: 100%; height: auto; border-radius: 8px; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+.gallery .figure { margin: 0; padding: 12px; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 .svg-label { font-family: var(--serif); }
 .svg-band { fill: rgba(194, 154, 75, .14); }
 .svg-line { stroke: var(--cinnabar); stroke-dasharray: 5 5; }
