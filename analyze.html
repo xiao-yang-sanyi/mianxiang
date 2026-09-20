@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能面相分析 · 观相</title>
+  <meta name="description" content="上传正脸照片，AI 识别人脸关键点，依据三停比例、五官形态自动生成个性化面相解读报告">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 人脸识别库：@vladmandic/face-api（IIFE 构建，注册全局 faceapi） -->
+  <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.12/dist/face-api.js" defer></script>
+  <script src="js/analyze.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">相</span>
+        <span class="brand-text">观相·面相文化<small>GUAN XIANG</small></span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">首页</a>
+        <a href="basics.html">基础知识</a>
+        <a href="cases.html">经典案例</a>
+        <a href="analyze.html" class="nav-cta active">智能面相分析</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">AI 面相解读</span>
+        <h2>智能面相分析</h2>
+        <p>上传一张正脸照片，AI 将识别人脸关键点，测量三停比例与五官形态，生成一份个性化面相解读报告。</p>
+      </div>
+
+      <div class="analyze-layout">
+        <!-- 左：上传与预览 -->
+        <div class="panel">
+          <h3>① 上传人像照片</h3>
+          <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="上传照片">
+            <div class="dz-icon">📷</div>
+            <p><strong>点击选择</strong> 或拖拽照片到此处</p>
+            <p class="dz-hint">支持 JPG / PNG / WebP，建议正脸、光线充足、无遮挡</p>
+            <input type="file" id="fileInput" accept="image/*" hidden>
+          </div>
+
+          <div class="preview-box" id="previewBox">
+            <canvas id="previewCanvas"></canvas>
+            <button class="clear-btn" id="clearBtn" title="移除照片">✕</button>
+          </div>
+
+          <div class="controls">
+            <button class="btn btn-primary btn-block" id="analyzeBtn" disabled>✦ 开始面相分析</button>
+          </div>
+
+          <div class="status" id="status" role="status"></div>
+
+          <div class="callout tip" style="margin-top: 18px;">
+            <div class="callout-title">拍照建议</div>
+            <p>· 正面朝镜头，面部完整露出（含额头与下巴）<br>· 光线均匀明亮，避免强逆光或过度美颜<br>· 勿佩戴口罩、墨镜或厚重刘海遮挡</p>
+          </div>
+        </div>
+
+        <!-- 右：分析报告 -->
+        <div class="panel report" id="report">
+          <h3>② 分析报告</h3>
+          <p style="color: var(--ink-soft);">上传照片并点击「开始面相分析」后，此处将显示解读结果。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-brand">观相 · 面相文化网</div>
+      <p>传承中国传统相学文化 · 识人先识己</p>
+      <p class="disclaimer">本站内容为传统文化科普，面相分析仅供娱乐与文化参考，请理性看待，不构成任何医学、法律、心理或投资建议。</p>
+    </div>
+  </footer>
+</body>
+</html>
